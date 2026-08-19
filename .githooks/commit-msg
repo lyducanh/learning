@@ -1,0 +1,35 @@
+#!/bin/sh
+# Git commit-msg hook for Conventional Commits validation
+
+commit_msg_file=$1
+commit_msg=$(cat "$commit_msg_file")
+
+# Conventional commit pattern: type(scope)?: description
+pattern="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9-]+\))?: .+"
+
+if ! echo "$commit_msg" | grep -iqE "$pattern"; then
+  echo ""
+  echo "❌ INVALID COMMIT MESSAGE FORMAT!"
+  echo "---------------------------------------------------------"
+  echo "Your commit message: '$commit_msg'"
+  echo ""
+  echo "Commit messages must follow the Conventional Commits specification:"
+  echo "  <type>(<scope>): <short description>"
+  echo ""
+  echo "Valid types include:"
+  echo "  feat     : A new feature"
+  echo "  fix      : A bug fix"
+  echo "  docs     : Documentation changes"
+  echo "  style    : Formatting, SCSS changes, missing semi colons, etc."
+  echo "  refactor : Code restructuring without feature/fix behavior change"
+  echo "  perf     : Performance improvements"
+  echo "  test     : Adding or updating tests"
+  echo "  build    : Build system or gem dependency updates"
+  echo "  ci       : CI/CD workflow changes"
+  echo "  chore    : Repository maintenance tasks"
+  echo ""
+  echo "Example:"
+  echo "  feat(blog): add dark glassmorphic hero component"
+  echo "---------------------------------------------------------"
+  exit 1
+fi
