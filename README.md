@@ -13,6 +13,25 @@ A modern, high-performance **Jekyll** blog & portfolio site designed with a **Da
 
 ---
 
+## 📂 Project Architecture
+
+For a comprehensive breakdown of files, Liquid templates, layout inheritance, and content creation guidelines, see **[`PROJECT_STRUCTURE.md`](PROJECT_STRUCTURE.md)**.
+
+```text
+blog/
+├── .github/workflows/deploy.yml  # GitHub Actions deployment pipeline
+├── _includes/                    # Head, Header, Footer Liquid components
+├── _layouts/                     # Default, Home, Page, Post layout templates
+├── _posts/                       # Blog post articles (.md)
+├── assets/                       # Custom CSS, JS, and Image assets
+├── _config.yml                   # Jekyll site metadata and configuration
+├── about.md                      # About page (/about/)
+├── index.html                    # Main landing page
+└── projects.md                   # Portfolio projects page (/projects/)
+```
+
+---
+
 ## 🚀 Local Development
 
 ### 1. Requirements
@@ -34,12 +53,10 @@ Open your browser at `http://localhost:4000/blog` (or `http://localhost:4000/` d
 
 ## 📤 Push to GitHub & Deploy to GitHub Pages
 
-Follow these simple steps to push your website to GitHub and activate GitHub Pages:
-
 ### Step 1: Create a GitHub Repository
 1. Go to [GitHub - New Repository](https://github.com/new).
-2. Set **Repository name** to `blog` (or `username.github.io` if you want a root domain site).
-3. Keep it **Public** and leave "Add a README file" unchecked.
+2. Set **Repository name** to `blog` (or `username.github.io` if hosting at root domain).
+3. Set visibility to **Public** and leave "Add a README file" unchecked.
 4. Click **Create repository**.
 
 ### Step 2: Push Local Code to GitHub
@@ -47,7 +64,7 @@ In your terminal (inside `D:/cv/blog`), run:
 
 ```bash
 git add .
-git commit -m "feat: initial Jekyll dark glassmorphism website setup"
+git commit -m "docs: add detailed project structure documentation"
 git remote add origin https://github.com/LyDucAnh/blog.git
 git branch -M main
 git push -u origin main
@@ -60,11 +77,3 @@ git push -u origin main
 2. Under **Build and deployment** -> **Source**, select **GitHub Actions**.
 3. That's it! GitHub Actions will trigger automatically on your `git push`, build the site, and host it live at:
    `https://LyDucAnh.github.io/blog/`
-
----
-
-## 🛠️ Customization
-
-- **Site Metadata**: Update `_config.yml` (title, author, email, baseurl, description).
-- **Avatar & Images**: Replace `assets/images/avatar.jpg` or `assets/images/hero.jpg`.
-- **Blog Posts**: Add new `.md` files in the `_posts/` folder using the format `YYYY-MM-DD-title.md`.
