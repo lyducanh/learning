@@ -5,6 +5,10 @@ description: "A modern glassmorphic blog & portfolio exploring AI Agents, Web Ar
 baseurl: "/blog" # Set to empty "" if hosting at root domain (username.github.io)
 url: "https://LyDucAnh.github.io"
 
+# Analytics Configuration
+# Replace G-XXXXXXXXXX with your Google Analytics 4 Measurement ID
+google_analytics: "G-XXXXXXXXXX"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge

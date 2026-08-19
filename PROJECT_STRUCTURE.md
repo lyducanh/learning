@@ -13,7 +13,7 @@ blog/
 │       └── deploy.yml          # GitHub Actions automated build & deployment workflow
 ├── _includes/                  # Reusable Liquid template components
 │   ├── footer.html             # Site footer with social links & copyright info
-│   ├── head.html               # HTML <head> with SEO tags, OpenGraph & asset links
+│   ├── head.html               # HTML <head> with SEO tags, GA4 tracking & asset links
 │   └── header.html             # Sticky glassmorphic navigation header
 ├── _layouts/                   # Jekyll page & post layouts
 │   ├── default.html            # Core HTML shell (includes head, header, main, footer)
@@ -33,11 +33,13 @@ blog/
 │   └── js/
 │       └── main.js             # Interactive scripts (copy code button, read time)
 ├── .gitignore                  # Git ignore rules for Jekyll build outputs & caches
-├── _config.yml                 # Jekyll global configuration & site metadata
+├── _config.yml                 # Jekyll global configuration & GA4 analytics ID
 ├── about.md                    # About Me page content (/about/)
+├── ANALYTICS_SETUP.md          # Step-by-step Google Analytics 4 configuration guide
 ├── Gemfile                     # Ruby dependencies declaration
 ├── Gemfile.lock                # Locked dependency versions
 ├── index.html                  # Root homepage entry point (uses home layout)
+├── PROJECT_STRUCTURE.md        # Comprehensive structure documentation
 ├── projects.md                 # Featured Projects portfolio page (/projects/)
 └── README.md                   # Quick start and GitHub deployment guide
 ```
@@ -50,9 +52,10 @@ blog/
 
 | File | Description | Key Settings / Notes |
 | :--- | :--- | :--- |
-| [`_config.yml`](file:///D:/cv/blog/_config.yml) | Global Jekyll configuration | Configures `title`, `author`, `email`, `baseurl: "/blog"`, Markdown parser (`kramdown`), syntax highlighter (`rouge`), and default layout rules. |
+| [`_config.yml`](file:///D:/cv/blog/_config.yml) | Global Jekyll configuration | Configures `title`, `author`, `email`, `baseurl: "/blog"`, `google_analytics`, Markdown parser (`kramdown`), syntax highlighter (`rouge`), and default layout rules. |
 | [`Gemfile`](file:///D:/cv/blog/Gemfile) | Ruby Gem definitions | Specifies `jekyll 4.4.1`, `webrick`, and plugin gems (`jekyll-feed`, `jekyll-seo-tag`, `jekyll-sitemap`). |
 | [`.github/workflows/deploy.yml`](file:///D:/cv/blog/.github/workflows/deploy.yml) | CI/CD Pipeline | Automates building Jekyll with `bundle exec jekyll build` and deploying static outputs to GitHub Pages upon pushing to `main`. |
+| [`ANALYTICS_SETUP.md`](file:///D:/cv/blog/ANALYTICS_SETUP.md) | Analytics Documentation | Instructions for creating a GA4 data stream and setting up tracking. |
 
 ---
 
@@ -81,7 +84,7 @@ graph TD
 
 ### 3. Partial Includes (`_includes/`)
 
-- **[`head.html`](file:///D:/cv/blog/_includes/head.html)**: Sets up document metadata, viewport scaling, SEO tags, OpenGraph tags, Google Fonts (`Outfit` and `Inter`), and links `style.css` and `main.js`.
+- **[`head.html`](file:///D:/cv/blog/_includes/head.html)**: Sets up document metadata, viewport scaling, SEO tags, OpenGraph tags, Google Analytics 4 tracking script (when `google_analytics` is set), Google Fonts (`Outfit` and `Inter`), and links `style.css` and `main.js`.
 - **[`header.html`](file:///D:/cv/blog/_includes/header.html)**: Renders the sticky top navigation header with backdrop blur and active navigation link indicators.
 - **[`footer.html`](file:///D:/cv/blog/_includes/footer.html)**: Renders copyright information, Jekyll/GitHub Pages credits, and social/email links.
 
@@ -132,11 +135,3 @@ subtitle: "What we offer."
 
 Content goes here...
 ```
-
----
-
-## ⚡ Build Artifacts & Generated Files (Ignored by Git)
-
-- **`_site/`**: Generated static website folder produced during `jekyll build`.
-- **`.jekyll-cache/`**: Jekyll compilation cache for fast incremental re-builds.
-- **`Gemfile.lock`**: Managed automatically by Bundler.
