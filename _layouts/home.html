@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<section class="hero-card">
+  <div class="hero-text">
+    <h1>Engineering the Future with <span class="gradient-text">AI &amp; Web Systems</span></h1>
+    <p>Hi! I'm <strong>Ly Duc Anh</strong>. Welcome to my personal laboratory where I share insights on AI Agents, High-Performance Web Architectures, and Software Design.</p>
+    <div class="hero-actions">
+      <a href="#latest-posts" class="btn btn-primary">Read Articles</a>
+      <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary">Explore Projects</a>
+    </div>
+  </div>
+  <div class="hero-avatar">
+    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="{{ site.author }} Avatar" id="hero-avatar-img">
+  </div>
+</section>
+
+<section id="latest-posts">
+  <div class="section-title">
+    <h2>Latest Articles</h2>
+    <span class="badge">{{ site.posts.size }} Posts</span>
+  </div>
+
+  <div class="posts-grid" id="posts-grid-container">
+    {% for post in site.posts %}
+    <article class="post-card" id="post-card-{{ forloop.index }}">
+      <div>
+        <div class="post-meta">
+          <span class="badge">{{ post.category | default: 'Engineering' }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+        </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
+      </div>
+      <div class="post-footer">
+        <span>By {{ post.author | default: site.author }}</span>
+        <a href="{{ post.url | relative_url }}" style="font-weight: 600;">Read More &rarr;</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<article class="article-container" id="post-article">
+  <header class="article-header">
+    <div class="post-meta" style="justify-content: center; margin-bottom: 1rem;">
+      <span class="badge">{{ page.category | default: 'Tech' }}</span>
+      <span>&bull;</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      <span>&bull;</span>
+      <span id="reading-time">Calculating read time...</span>
+    </div>
+    <h1 class="gradient-text">{{ page.title }}</h1>
+    <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">{{ page.subtitle | default: page.excerpt | strip_html }}</p>
+  </header>
+
+  <div class="article-body" id="article-content">
+    {{ content }}
+  </div>
+
+  <div style="margin-top: 3rem; text-align: center;">
+    <a href="{{ '/' | relative_url }}" class="btn btn-secondary">&larr; Back to Articles</a>
+  </div>
+</article>

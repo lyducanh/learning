@@ -1,0 +1,26 @@
+title: "Ly Duc Anh | Dev Portfolio & Tech Blog"
+email: namobilegame@gmail.com
+author: "Ly Duc Anh"
+description: "A modern glassmorphic blog & portfolio exploring AI Agents, Web Architecture, and Modern Software Engineering."
+baseurl: "/blog" # Set to empty "" if hosting at root domain (username.github.io)
+url: "https://LyDucAnh.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: null
+
+# GitHub Pages compatibility settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Custom collections or defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Ly Duc Anh"
