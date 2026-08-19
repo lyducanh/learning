@@ -1,0 +1,40 @@
+// SCSS Design Tokens & Variables
+$bg-dark: #07090e;
+$bg-card: rgba(18, 24, 38, 0.65);
+$bg-card-hover: rgba(28, 36, 56, 0.8);
+$bg-glass: rgba(13, 17, 28, 0.75);
+$border-glass: rgba(255, 255, 255, 0.08);
+$border-glow: rgba(0, 242, 254, 0.3);
+
+$text-main: #f0f6fc;
+$text-muted: #9198a1;
+$text-dim: #6e7681;
+
+$primary: #00f2fe;
+$secondary: #4facfe;
+$accent-purple: #7928ca;
+$accent-pink: #ff0080;
+
+$gradient-glow: linear-gradient(135deg, $primary 0%, $secondary 50%, $accent-purple 100%);
+$gradient-text: linear-gradient(135deg, #ffffff 0%, $primary 50%, $accent-purple 100%);
+
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+
+$shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Mixins
+@mixin glass-panel($bg: $bg-card, $blur: 12px, $border: $border-glass) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

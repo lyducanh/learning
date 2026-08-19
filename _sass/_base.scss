@@ -1,0 +1,75 @@
+// SCSS Base Styles & Typography
+@use "variables" as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: $bg-dark;
+  color: $text-main;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: -10vw;
+    left: -10vw;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: -10vw;
+    right: -10vw;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(121, 40, 202, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    color: $secondary;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  color: $text-main;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.gradient-text {
+  background: $gradient-text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
